@@ -32,6 +32,9 @@ class Graph:
         self.__cost: dict = {}
         self.__root: self = None
 
+    def __len__(self):
+        return len(self.__table)
+
     def is_empty(self):
         return len(self.__table)==0
 
@@ -65,6 +68,9 @@ class Graph:
         if node is None:
             node = self.Node(value)
             self.__table[value] = node
+
+    def get_cost(self, source, target):
+        return self.__cost[(source,target)]
 
     def get_node(self,value) -> Node:
         return self.__table.get(value,None)
