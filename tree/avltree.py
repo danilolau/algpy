@@ -146,15 +146,16 @@ class AVLTree:
     def __str__(self) -> str:
         return self.print_tree(self.root,1)
 
-import random
+if __name__ == "main":
+    import random
 
-tree = AVLTree()
-seq = random.choices(range(1000), k=15)
+    tree = AVLTree()
+    seq = random.choices(range(1000), k=15)
 
-for v in seq:
-    tree.insert(v)
-    print("Inserting the value {}".format(v))
-    print(tree)
+    for v in seq:
+        tree.insert(v)
+        print("Inserting the value {}".format(v))
+        print(tree)
 
 
 

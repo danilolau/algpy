@@ -11,6 +11,18 @@ class LinkedList:
         self.head = None
         self.tail = None
 
+    def push(self, item):
+        node = self.Node(item)
+        self.push_node(node)
+
+    def push_node(self, node: Node):
+        if self.head is None:
+            self.head = node
+            self.tail = node
+        else:
+            node.next = self.head
+            self.head = node
+
     def append(self, item):
         node = self.Node(item)
         self.append_node(node)
