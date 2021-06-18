@@ -45,7 +45,7 @@ class DAG():
                     short = self.shortest.get(adj.value)
                     cost = self.graph.get_cost(node.value,adj.value)
                     path = self.shortest[node.value] + cost
-                    if (short is None) or (path < self.shortest[adj.value]):
+                    if (short is None) or (path < short):
                         self.shortest[adj.value] = path
                         self.pred[adj.value] = node.value
         else:
