@@ -33,11 +33,11 @@ class DAG():
         
 
     def dag_shortest_path(self, source: Any):
+        """ Update the shortest path from a source, in case it is a DAG Graph."""
         is_dag, toporder = self.topological_sort(self.graph)
         if is_dag:
-            for key, value in self.graph:
-                self.shortest[key] = float('inf')
-
+            self.pred = {}
+            self.shortest = {}
             self.shortest[source] = 0
             
             for node in toporder:
