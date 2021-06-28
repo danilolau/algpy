@@ -16,9 +16,9 @@ def dijkstra( graph: Graph, source: Any):
             q.add(value)
             for adj in graph.get_node(value).children:
                 cost = graph.get_cost(value,adj.value)
-                short = shortest.get(adj.value)
+                short = shortest.get(adj.value,float("inf"))
                 path = shortest[value] + cost
-                if (short is None) or (path < short):
+                if path < short:
                     shortest[adj.value] = path
                     pred[adj.value] = value
                     heappush(h,(shortest[adj.value],adj.value))

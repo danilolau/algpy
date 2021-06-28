@@ -42,10 +42,10 @@ class DAG():
             
             for node in toporder:
                 for adj in node.children:
-                    short = self.shortest.get(adj.value)
+                    short = self.shortest.get(adj.value,float("inf"))
                     cost = self.graph.get_cost(node.value,adj.value)
                     path = self.shortest[node.value] + cost
-                    if (short is None) or (path < short):
+                    if path < short:
                         self.shortest[adj.value] = path
                         self.pred[adj.value] = node.value
         else:
